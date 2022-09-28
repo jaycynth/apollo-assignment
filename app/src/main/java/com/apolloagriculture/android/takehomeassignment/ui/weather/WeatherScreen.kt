@@ -49,7 +49,7 @@ fun WeatherScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()
-                    .padding(32.dp, 16.dp),
+                    .padding(16.dp, 16.dp),
             ) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Box(
@@ -65,6 +65,7 @@ fun WeatherScreen(
                         Text(
                             text = "Weather", fontSize = 28.sp,
                             color = titleColor,
+                            fontWeight= FontWeight.Bold,
                             modifier = Modifier
                                 .padding(start = 32.dp, top = 8.dp, bottom = 16.dp)
                                 .fillMaxWidth()
@@ -88,7 +89,6 @@ fun WeatherScreen(
                                     text = weatherData.message!!,
                                     color = Color.Red,
                                     textAlign = TextAlign.Center
-
                                 )
                             }
 
@@ -145,11 +145,11 @@ fun WeatherItem(weather: DayWeather) {
         Text(
             text = "${weather.lowTemp} - ${weather.highTemp} C",
             fontSize = 15.sp,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = weather.description, fontSize = 12.sp, fontStyle = FontStyle.Italic
+            text = weather.description, fontSize = 12.sp, fontStyle = FontStyle.Italic,fontWeight = FontWeight.SemiBold
         )
         Spacer(modifier = Modifier.height(8.dp))
     }
