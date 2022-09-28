@@ -3,14 +3,10 @@ package com.apolloagriculture.android.takehomeassignment.ui.weather
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -26,7 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.apolloagriculture.android.takehomeassignment.R
 import com.apolloagriculture.android.takehomeassignment.model.DayWeather
 import com.apolloagriculture.android.takehomeassignment.model.Weather
@@ -40,7 +35,6 @@ import com.apolloagriculture.android.takehomeassignment.util.Resource
 @Composable
 fun WeatherScreen(
     viewModel: WeatherViewModel = hiltViewModel(),
-    navController: NavController,
     connectivityObserver: ConnectivityObserver
 ) {
 
@@ -55,18 +49,9 @@ fun WeatherScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()
-                    .padding(16.dp, 16.dp),
+                    .padding(32.dp, 16.dp),
             ) {
-                Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = null,
-                    tint = MaterialTheme.colors.onSurface,
-                    modifier = Modifier
-                        .size(36.dp)
-                        .offset(16.dp, 16.dp)
-                        .clickable { navController.popBackStack() }
-                )
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Box(
                     modifier = Modifier
                         .border(BorderStroke(2.dp, SolidColor(MaterialTheme.colors.onSurface)))
@@ -112,8 +97,8 @@ fun WeatherScreen(
                                 CircularProgressIndicator(
                                     modifier = Modifier.size(50.dp),
                                     color = MaterialTheme.colors.primary,
-
-                                    )
+                                    strokeWidth = 2.dp
+                                )
                             }
                             else -> {}
                         }

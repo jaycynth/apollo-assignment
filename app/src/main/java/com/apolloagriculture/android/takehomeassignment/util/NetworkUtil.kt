@@ -38,7 +38,6 @@ class NetworkConnectivityObserver(context: Context): ConnectivityObserver {
                     launch { send(ConnectivityObserver.Status.Available) }
                 }
 
-
                 override fun onUnavailable() {
                     super.onUnavailable()
                     launch { send(ConnectivityObserver.Status.Unavailable) }

@@ -6,9 +6,10 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
+    primary = Purple500,
     primaryVariant = Purple700,
     secondary = Teal200,
     onBackground = Color.White,
@@ -32,10 +33,16 @@ fun AndroidtakehomeassignmentTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
+
+
     val colors = if (darkTheme) {
+
         DarkColorPalette
+
     } else {
+
         LightColorPalette
+
     }
 
     MaterialTheme(
